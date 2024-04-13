@@ -28,14 +28,15 @@ public_users.post("/register", (req,res) => {
 
 
 // Get the book list available in the shop
-/*public_users.get('/',function (req, res) {
+public_users.get('/',function (req, res) {
   //Write your code here
-  res.send(JSON.stringify(books));
+  function getBooks(){res.send(JSON.stringify(books));}
+  setTimeout(getBooks,6000);
   //return res.status(300).json({message: "Yet to be implemented"});
 });
-*/
 
-public_users.get('/',function (req, res) {
+
+/*public_users.get('/',function (req, res) {
 
 
     let listBooksPromise = new Promise(function(listBooksResolve, listBooksReject) {
@@ -57,7 +58,7 @@ public_users.get('/',function (req, res) {
     });
     
     
-
+*/
      
     
 
@@ -121,7 +122,7 @@ public_users.get('/isbn/:isbn',function (req, res) {
 });
 */
 
-// Get book details based on author
+// Get book details based on author using Promise
 public_users.get('/author/:author',function (req, res) {
     //Write your code here
   
