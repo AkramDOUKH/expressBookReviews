@@ -8,8 +8,7 @@ const public_users = express.Router();
 
 
 public_users.post("/register", (req,res) => {
-  //Write your code here
-
+  
   const username = req.body.username;
   const password = req.body.password;
 
@@ -27,12 +26,12 @@ public_users.post("/register", (req,res) => {
 
 
 
-// Get the book list available in the shop
+// Get the book list available in the shop using Async callback function
 public_users.get('/',function (req, res) {
-  //Write your code here
+  
   function getBooks(){res.send(JSON.stringify(books));}
   setTimeout(getBooks,6000);
-  //return res.status(300).json({message: "Yet to be implemented"});
+  
 });
 
 
@@ -71,7 +70,7 @@ public_users.get('/',function (req, res) {
  });
   */
 
- // Get book details based on ISBN
+ // Get book details based on ISBN using Promise
 public_users.get('/isbn/:isbn',function (req, res) {
   
 
@@ -165,7 +164,7 @@ public_users.get('/author/:author',function (req, res) {
   });
   
 
-// Get all books based on title
+// Get all books based on title using Promise
 public_users.get('/title/:title',function (req, res) {
   //Write your code here
   
@@ -205,19 +204,17 @@ listBooksTitlePromise.then(
 );  
 
 
-
-
-  //return res.status(300).json({message: "Yet to be implemented"});
+  
 });
 
 //  Get book review
 public_users.get('/review/:isbn',function (req, res) {
-  //Write your code here
+  
   const isbn = req.params.isbn;
   books_review = books[isbn]["reviews"];
   
   res.send(JSON.stringify(books_review));
-  //return res.status(300).json({message: "Yet to be implemented"});
+  
 });
 
 module.exports.general = public_users;
